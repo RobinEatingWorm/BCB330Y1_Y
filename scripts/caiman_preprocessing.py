@@ -18,21 +18,22 @@ def resave_data_path() -> None:
     cm_macros.resave_data(data, fnames)
 
 
-def get_params_dict() -> dict:
+def get_params_dict(tau: int) -> dict:
     """
     Returns parameter needed for CaImAn.
+    :param tau: Half size of neurons.
     :return: A dictionary of parameters.
     """
 
     # Parameter dictionary for CNMFParams
     params_dict = {
-        'gSig': [3, 3],    # Half size of neurons (tau)
-        'merge_thr': 0.5,  # Threshold for merging
-        'min_SNR': 2.5,    # Trace SNR threshold
-        'rval_thr': 0.6,   # Space correlation threshold
-        'p': 2,            # Order of AR model
-        'pw_rigid': True,  # Perform rigid motion correction
-        'use_cuda': True   # Use a GPU
+        'gSig': [tau, tau],    # Half size of neurons (tau)
+        'merge_thr': 0.5,      # Threshold for merging
+        'min_SNR': 2.5,        # Trace SNR threshold
+        'rval_thr': 0.6,       # Space correlation threshold
+        'p': 2,                # Order of AR model
+        'pw_rigid': True,      # Perform rigid motion correction
+        'use_cuda': True       # Use a GPU
     }
     return params_dict
 
