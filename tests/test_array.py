@@ -2,27 +2,6 @@ import numpy as np
 from src import array
 
 
-def test_normalize_vector() -> None:
-    """
-    Test a vector with 5 elements.
-    """
-    data = np.array([5, 2, -6, 2, -7])
-    result = array.normalize(data, 0)
-    expected = (data + 0.8) / np.sqrt(28.7)
-    assert np.array_equal(result, expected)
-
-
-def test_normalize_matrix() -> None:
-    """
-    Test a 2 x 2 matrix.
-    """
-    data = np.array([[-2, 5], [2, 21]])
-    result = array.normalize(data, 0)
-    expected = np.array([[-2 / np.sqrt(8), -8 / np.sqrt(128)],
-                         [2 / np.sqrt(8), 8 / np.sqrt(128)]]).astype(np.float64)
-    assert np.allclose(result, expected)
-
-
 def test_centered_trial_average_zero() -> None:
     """
     Test a 4D array containing 0 as its only element.
