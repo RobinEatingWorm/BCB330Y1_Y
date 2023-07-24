@@ -29,6 +29,10 @@ class Hyperparams:
         Whether to perform line removal by proxy.
     proxy_slices:
         A list of rectangular slices of the image data to set to np.nan.
+    path_image_meta:
+        The path to the metadata file of the image.
+    image_meta_var:
+        The variable name within the metadata file containing the metadata itself.
     piecewise_proc:
         Whether to run CNMF on a subrectangle of the entire area.
     proc_slices:
@@ -59,6 +63,10 @@ class Hyperparams:
     lr_proxy: bool
     proxy_slices: list[tuple[slice, slice]]
 
+    # Blank removal
+    path_image_meta: str
+    image_meta_var: str
+
     # Piecewise processing
     piecewise_proc: bool
     proc_slices: list[tuple[slice, slice]]
@@ -81,6 +89,8 @@ class Hyperparams:
         self.correction_rad = 0
         self.lr_proxy = False
         self.proxy_slices = []
+        self.path_image_meta = ''
+        self.image_meta_var = ''
         self.piecewise_proc = False
         self.proc_slices = []
         self.proc_index = 0
@@ -95,14 +105,16 @@ class Hyperparams:
         self.path_orig = path_orig
         self.path_src = path_src
 
-    def set_params_dict(self, tau: int) -> None:
+    def set_params_dict(self, tau: int, k: int) -> None:
         """
         Set parameters defined by CaImAn.
         :param tau: Half size of neurons.
+        :param k: Number of components (neurons).
         """
 
         self.params_dict = {
             'gSig': [tau, tau],              # Half size of neurons (tau)
+            'K': k,                          # Number of components
             'merge_thr': 0.5,                # Threshold for merging
             'min_SNR': 2.5,                  # Trace SNR threshold
             'rval_thr': 0.6,                 # Space correlation threshold
@@ -145,6 +157,17 @@ class Hyperparams:
 
         self.lr_proxy = True
         self.proxy_slices = proxy_slices
+
+    def set_blank_params(self, path_image_meta: str, image_meta_var: str) -> None:
+        """
+        Set parameters for removing blank frames from the image metadata file.
+        :param path_image_meta: The path to the image metadata file. This
+        should be a MAT-file.
+        :param image_meta_var: The variable name inside the MAT-file containing
+        the metadata.
+        """
+        self.path_image_meta = path_image_meta
+        self.image_meta_var = image_meta_var
 
     def set_piecewise_processing(self, proc_slices: list[tuple[slice, slice]]) -> None:
         """
