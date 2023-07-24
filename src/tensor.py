@@ -30,3 +30,15 @@ def centered_trial_average(data: np.ndarray, trial_axis: int, neuron_axis: int) 
 
     # Center the data
     return trial_average - np.mean(collapsed_trial_average, 1).reshape(shape)
+
+
+def min_max(data: np.ndarray, axis: int) -> np.ndarray:
+    """
+    Perform min-max normalization on the data along the given axis.
+    :param data: An array of data.
+    :param axis: The axis to normalize.
+    :return: A normalized array of data.
+    """
+    maxima = np.max(data, axis=axis, keepdims=True)
+    minima = np.min(data, axis=axis, keepdims=True)
+    return (data - minima) / (maxima - minima)
