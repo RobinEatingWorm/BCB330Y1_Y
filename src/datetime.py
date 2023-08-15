@@ -11,7 +11,7 @@ def add_frames_to_datetime(time_start: np.datetime64, frames: int, fr: float) ->
     :param frames: The number of frames to add.
     :param fr: The frame rate.
     :return: A np.datetime64 containing the time after adding the frames to
-    the start time.
+        the start time.
     """
 
     # Find the elapsed time (in microseconds) using the frames
@@ -42,7 +42,7 @@ def image_desc_to_datetime(image_desc: str) -> np.datetime64:
     """
     Extract time information from an image description of a TIFF file frame.
     :param image_desc: A string containing information on a frame of a TIFF
-    file.
+        file.
     :return: A np.datetime64 containing the time of the frame.
     """
 
@@ -63,7 +63,7 @@ def timestamp_to_datetime(timestamp: np.ndarray) -> np.datetime64:
     Convert a timestamp into a np.datetime64 rounded to the nearest
     microsecond.
     :param timestamp: An array containing the year, month, day, hour,
-    minute, and second in that order.
+        minute, and second in that order.
     :return: A np.datetime64 representation of the timestamp.
     """
 
