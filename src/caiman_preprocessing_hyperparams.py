@@ -119,7 +119,8 @@ class Hyperparams:
             'min_SNR': 2.5,                  # Trace SNR threshold
             'rval_thr': 0.6,                 # Space correlation threshold
             'p': 2,                          # Order of AR model
-            'use_cuda': True                 # Use a GPU
+            'use_cuda': True,                # Use a GPU
+            'use_cnn': False                 # CNN for component evaluation
         }
 
     def set_fname(self, fname: str) -> None:
@@ -138,7 +139,7 @@ class Hyperparams:
         :param local_max_rad: The radius around a potential local maximum to check.
         :param channel_thr: The threshold to separate different color channels.
         :param correction_thr: The threshold for determining which pixel rows must be
-        replaced.
+            replaced.
         :param correction_rad: The radius around a local maximum to replace pixel rows.
         """
 
@@ -152,7 +153,7 @@ class Hyperparams:
         """
         Set parameters for line removal by proxy.
         :param proxy_slices: A list of rectangular slices of the image data to
-        set to np.nan.
+            set to np.nan.
         """
 
         self.lr_proxy = True
@@ -162,9 +163,9 @@ class Hyperparams:
         """
         Set parameters for removing blank frames from the image metadata file.
         :param path_image_meta: The path to the image metadata file. This
-        should be a MAT-file.
+            should be a MAT-file.
         :param image_meta_var: The variable name inside the MAT-file containing
-        the metadata.
+            the metadata.
         """
         self.path_image_meta = path_image_meta
         self.image_meta_var = image_meta_var

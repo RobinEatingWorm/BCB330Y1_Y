@@ -56,12 +56,12 @@ def replace_rows(data: movie, data_proxy: np.ndarray, index: int, channel_thresh
     Replace affected rows around the given index in the image data.
     :param data: The original calcium imaging data.
     :param data_proxy: An edited version of the original data used for determining which
-    rows to replace.
+        rows to replace.
     :param index: An index to a frame in the data.
     :param channel_threshold: The threshold for determining whether the frame
-    displays the correct color channel for correction.
+        displays the correct color channel for correction.
     :param correction_threshold: The threshold for determining whether a row is
-    affected.
+        affected.
     :param correction_radius: The number of frames to correct around the given frame.
     """
 
