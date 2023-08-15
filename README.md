@@ -58,7 +58,6 @@ This project uses the following directories and files.
 
 * `data` - Not included in the repository.
   All raw data used in analyses should be placed in here.
-* [`docs`](docs) -
 * `results` - Not included in the repository.
   The results of all analyses should be automatically placed in here.
 * [`scripts`](scripts) - Contains all Jupyter Notebook files.
