@@ -10,3 +10,6 @@ __pycache__
 
 # Jupyter Notebook data
 **/.ipynb_checkpoints
+
+# Other analysis files
+F211*
