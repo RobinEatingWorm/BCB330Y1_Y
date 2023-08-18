@@ -74,22 +74,3 @@ This project uses the following directories and files.
 * [`environment_lin_lab_gpu.yml`](environment_lin_lab_gpu.yml) - Same as above but does not specify TensorFlow.
   This may fix problems during environment creation on the GPU in the Lin Lab.
 * [`setup.py`](setup.py) - A setup script for the [`src`](src) package.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
